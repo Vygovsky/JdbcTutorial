@@ -4,6 +4,7 @@ public class Address {
     private long id;
     private String city;
     private String country;
+    private String street;
     private String postCode;
 
     public Address() {
@@ -33,6 +34,14 @@ public class Address {
         this.country = country;
     }
 
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
     public String getPostCode() {
         return postCode;
     }
@@ -51,6 +60,7 @@ public class Address {
         if (id != address.id) return false;
         if (city != null ? !city.equals(address.city) : address.city != null) return false;
         if (country != null ? !country.equals(address.country) : address.country != null) return false;
+        if (street != null ? !street.equals(address.street) : address.street != null) return false;
         return postCode != null ? postCode.equals(address.postCode) : address.postCode == null;
     }
 
@@ -59,6 +69,7 @@ public class Address {
         int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (city != null ? city.hashCode() : 0);
         result = 31 * result + (country != null ? country.hashCode() : 0);
+        result = 31 * result + (street != null ? street.hashCode() : 0);
         result = 31 * result + (postCode != null ? postCode.hashCode() : 0);
         return result;
     }
@@ -69,6 +80,7 @@ public class Address {
                 "id=" + id +
                 ", city='" + city + '\'' +
                 ", country='" + country + '\'' +
+                ", street='" + street + '\'' +
                 ", postCode='" + postCode + '\'' +
                 '}';
     }
