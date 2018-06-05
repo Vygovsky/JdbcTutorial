@@ -3,7 +3,6 @@ package service;
 import bl.Util;
 import dao.AddressDAO;
 import entity.Address;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -29,12 +28,12 @@ public class AddressService extends Util implements AddressDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if (preparedStatement != null)
+            if (preparedStatement != null) {
                 preparedStatement.close();
-
-            if (connection != null)
+            }
+            if (connection != null) {
                 connection.close();
-
+            }
         }
     }
 
